@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="#000000"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton"
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/icon"
+                android:contentDescription="@string/logo"
+                android:layout_marginTop="-10dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onStoreLocation"
+                android:text="@string/save_location" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/grey">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="7dp"
+                    android:layout_marginBottom="3dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="GC12345"
+                            android:id="@+id/textView"
+                            android:textAlignment="center"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/textView2"
+                            android:textColor="@android:color/primary_text_dark" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Cache name"
+                            android:id="@+id/textView2"
+                            android:textColor="@color/primary_text_dark"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/imageView3" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imageView3"
+                            android:src="@drawable/traditional"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imageView2"
+                            android:src="@drawable/compass_nw"
+                            android:layout_alignTop="@+id/imageView"
+                            android:layout_toStartOf="@+id/textView4" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="1/1.5"
+                            android:id="@+id/textView3"
+                            android:textColor="@color/primary_text_dark"
+                            android:layout_alignTop="@+id/imageView"
+                            android:layout_alignParentEnd="true" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imageView"
+                            android:src="@drawable/regular"
+                            android:layout_gravity="center_vertical"
+                            android:layout_centerVertical="true"
+                            android:layout_toStartOf="@+id/textView3" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="1.2 km"
+                            android:id="@+id/textView4"
+                            android:textColor="@color/primary_text_dark"
+                            android:layout_alignTop="@+id/imageView"
+                            android:layout_toStartOf="@+id/imageView" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/start_timer_button"
+                android:onClick="onStartTimer"
+                android:text="@string/more" />
+
+            <android.support.wearable.view.DelayedConfirmationView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_launcher"
+                app:circle_color="@color/blue"
+                app:circle_padding="@dimen/circle_padding"
+                app:circle_border_width="@dimen/circle_border_normal_width"
+                app:circle_border_color="@color/white"
+                app:circle_radius="@dimen/circle_radius"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <android.support.wearable.view.DismissOverlayView
+        android:id="@+id/dismiss_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>
